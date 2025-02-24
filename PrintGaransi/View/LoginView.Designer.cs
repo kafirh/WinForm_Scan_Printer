@@ -1,4 +1,4 @@
-﻿namespace PrintGaransi.View
+﻿namespace PrintPackingLabel.View
 {
     partial class LoginView
     {
@@ -86,9 +86,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(190, 190);
+            pictureBox1.Location = new Point(217, 253);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(28, 37);
+            pictureBox1.Size = new Size(32, 49);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -97,9 +98,10 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(190, 268);
+            pictureBox2.Location = new Point(217, 357);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(28, 37);
+            pictureBox2.Size = new Size(32, 49);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -108,18 +110,20 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(236, 226);
+            panel1.Location = new Point(270, 301);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(347, 3);
+            panel1.Size = new Size(397, 4);
             panel1.TabIndex = 6;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(236, 302);
+            panel2.Location = new Point(270, 403);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(347, 3);
+            panel2.Size = new Size(397, 4);
             panel2.TabIndex = 7;
             // 
             // textBoxPassword
@@ -128,11 +132,12 @@
             textBoxPassword.BackColor = Color.White;
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Arial", 15.75F);
-            textBoxPassword.Location = new Point(236, 270);
+            textBoxPassword.Location = new Point(270, 360);
+            textBoxPassword.Margin = new Padding(3, 4, 3, 4);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.PlaceholderText = "Password";
-            textBoxPassword.Size = new Size(347, 25);
+            textBoxPassword.Size = new Size(397, 31);
             textBoxPassword.TabIndex = 2;
             textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
@@ -142,10 +147,11 @@
             textBoxNik.BackColor = Color.White;
             textBoxNik.BorderStyle = BorderStyle.None;
             textBoxNik.Font = new Font("Arial", 15.75F);
-            textBoxNik.Location = new Point(236, 194);
+            textBoxNik.Location = new Point(270, 259);
+            textBoxNik.Margin = new Padding(3, 4, 3, 4);
             textBoxNik.Name = "textBoxNik";
             textBoxNik.PlaceholderText = "NIK";
-            textBoxNik.Size = new Size(347, 25);
+            textBoxNik.Size = new Size(397, 31);
             textBoxNik.TabIndex = 1;
             textBoxNik.KeyDown += textBoxNik_KeyDown;
             // 
@@ -168,61 +174,66 @@
             roundedCornerPanel1.Controls.Add(pictureBox2);
             roundedCornerPanel1.CornerRadius = 15;
             roundedCornerPanel1.Font = new Font("Arial", 15.75F);
-            roundedCornerPanel1.Location = new Point(221, 88);
+            roundedCornerPanel1.Location = new Point(253, 117);
+            roundedCornerPanel1.Margin = new Padding(3, 4, 3, 4);
             roundedCornerPanel1.Name = "roundedCornerPanel1";
-            roundedCornerPanel1.Size = new Size(789, 446);
+            roundedCornerPanel1.Size = new Size(902, 595);
             roundedCornerPanel1.TabIndex = 9;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(46, 119, 174);
-            label2.Location = new Point(130, 87);
+            label2.Font = new Font("Arial", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(40, 167, 69);
+            label2.Location = new Point(3, 87);
             label2.Name = "label2";
-            label2.Size = new Size(529, 43);
+            label2.Size = new Size(896, 53);
             label2.TabIndex = 1;
             label2.Text = "Laundry System Business Unit";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Helvetica", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(46, 119, 174);
-            label1.Location = new Point(59, 30);
+            label1.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(40, 167, 69);
+            label1.Location = new Point(3, 17);
             label1.Name = "label1";
-            label1.Size = new Size(679, 57);
+            label1.Size = new Size(896, 70);
             label1.TabIndex = 0;
-            label1.Text = "WARRANTY CARD PRINTING";
+            label1.Text = "PACKING LABEL PRINTING";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // hiddenPass
             // 
+            hiddenPass.Cursor = Cursors.Hand;
             hiddenPass.Image = Properties.Resources.hide;
-            hiddenPass.Location = new Point(548, 264);
+            hiddenPass.Location = new Point(626, 352);
+            hiddenPass.Margin = new Padding(3, 4, 3, 4);
             hiddenPass.Name = "hiddenPass";
-            hiddenPass.Size = new Size(35, 31);
+            hiddenPass.Size = new Size(40, 41);
             hiddenPass.TabIndex = 11;
             hiddenPass.TabStop = false;
             // 
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.None;
-            btnExit.BackColor = Color.Red;
-            btnExit.BackgroundColor = Color.Red;
+            btnExit.BackColor = Color.FromArgb(255, 77, 77);
+            btnExit.BackgroundColor = Color.FromArgb(255, 77, 77);
             btnExit.BorderColor = Color.PaleVioletRed;
             btnExit.BorderRadius = 8;
             btnExit.BorderSize = 0;
+            btnExit.Cursor = Cursors.Hand;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(442, 374);
+            btnExit.Location = new Point(505, 499);
+            btnExit.Margin = new Padding(3, 4, 3, 4);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(113, 40);
+            btnExit.Size = new Size(129, 53);
             btnExit.TabIndex = 10;
             btnExit.Text = "Exit";
             btnExit.TextColor = Color.White;
@@ -231,18 +242,20 @@
             // btnConnect
             // 
             btnConnect.Anchor = AnchorStyles.None;
-            btnConnect.BackColor = Color.FromArgb(27, 60, 115);
-            btnConnect.BackgroundColor = Color.FromArgb(27, 60, 115);
+            btnConnect.BackColor = Color.DodgerBlue;
+            btnConnect.BackgroundColor = Color.DodgerBlue;
             btnConnect.BorderColor = Color.PaleVioletRed;
             btnConnect.BorderRadius = 8;
             btnConnect.BorderSize = 0;
+            btnConnect.Cursor = Cursors.Hand;
             btnConnect.FlatAppearance.BorderSize = 0;
             btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConnect.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(247, 374);
+            btnConnect.Location = new Point(270, 499);
+            btnConnect.Margin = new Padding(3, 4, 3, 4);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(113, 40);
+            btnConnect.Size = new Size(129, 53);
             btnConnect.TabIndex = 9;
             btnConnect.Text = "Login";
             btnConnect.TextColor = Color.White;
@@ -250,24 +263,28 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.BackColor = Color.PaleGreen;
             pictureBox3.Dock = DockStyle.Fill;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(0, 0);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1229, 632);
+            pictureBox3.Size = new Size(1405, 843);
             pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 235, 245);
-            ClientSize = new Size(1229, 632);
+            ClientSize = new Size(1405, 843);
             Controls.Add(roundedCornerPanel1);
             Controls.Add(pictureBox3);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "LoginView";
             Text = "WARRANTY CARD PRINTING";
             WindowState = FormWindowState.Maximized;

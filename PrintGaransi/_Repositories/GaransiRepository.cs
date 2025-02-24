@@ -1,4 +1,4 @@
-﻿using PrintGaransi.Model;
+﻿using PrintPackingLabel.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace PrintGaransi._Repositories
+namespace PrintPackingLabel._Repositories
 {
     public class GaransiRepository : IGaransiRepository
     {
@@ -14,8 +14,10 @@ namespace PrintGaransi._Repositories
 
         public GaransiRepository()
         {
-            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUProduction"].ConnectionString;
+            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
+            Console.WriteLine($"Connecting to Database: {LSBUDBPRODUCTION}");
         }
+
 
         public IEnumerable<GaransiModel> GetData(string model)
         {
@@ -28,26 +30,27 @@ namespace PrintGaransi._Repositories
 
             string query = @"
                     SELECT 
-                        Result_Warranty_Cards.Id,
-                        Result_Warranty_Cards.JenisProduk,
-                        Result_Warranty_Cards.ModelCode,
-                        Result_Warranty_Cards.ModelNumber,
-                        Result_Warranty_Cards.SerialNumber,
-                        Result_Warranty_Cards.Register,
-                        CONVERT(DATE, Result_Warranty_Cards.ScanningDate) AS ScanningDate,
-                        Result_Warranty_Cards.ScanningTime,
+                        Result_Packing_Labels.Id,
+                        Result_Packing_Labels.JenisProduk,
+                        Result_Packing_Labels.ModelCode,
+                        Result_Packing_Labels.ModelNumber,
+                        Result_Packing_Labels.GlobalCodeId,
+                        Result_Packing_Labels.SerialNumber,
+                        Result_Packing_Labels.Register,
+                        CONVERT(DATE, Result_Packing_Labels.ScanningDate) AS ScanningDate,
+                        Result_Packing_Labels.ScanningTime,
                         Locations.LocationName AS Location,
-                        AspNetUsers.Name AS InspectorId
+                        AspNetUsers.Name AS OperatorId
                     FROM 
-                        Result_Warranty_Cards
+                        Result_Packing_Labels
                     INNER JOIN 
-                        LSBU_Auth.dbo.AspNetUsers 
+                        AspNetUsers 
                     ON 
-                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK
+                        Result_Packing_Labels.OperatorId = AspNetUsers.NIK
                     INNER JOIN 
-                        LSBU_Common.dbo.Locations 
+                        Locations 
                     ON 
-                        Result_Warranty_Cards.Location = Locations.Id
+                        Result_Packing_Labels.Location = Locations.Id
                     WHERE 
                         Locations.LocationName = @Location AND CONVERT(DATE, ScanningDate) = @date
                     ORDER BY 
@@ -71,12 +74,13 @@ namespace PrintGaransi._Repositories
                             JenisProduk = reader["JenisProduk"].ToString(),
                             ModelCode = reader["ModelCode"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             NoSeri = reader["SerialNumber"].ToString(),
                             NoReg = reader["Register"].ToString(),
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Location = reader["Location"].ToString(),
-                            Inspector = reader["InspectorId"].ToString()
+                            Inspector = reader["OperatorId"].ToString()
                         });
                     }
                 }
@@ -92,30 +96,34 @@ namespace PrintGaransi._Repositories
 
             string query = @"
                     SELECT 
-                        Result_Warranty_Cards.Id, 
-                        Result_Warranty_Cards.JenisProduk, 
-                        Result_Warranty_Cards.ModelCode, 
-                        Result_Warranty_Cards.ModelNumber, 
-                        Result_Warranty_Cards.SerialNumber, 
-                        Result_Warranty_Cards.Register, 
-                        Result_Warranty_Cards.ScanningDate, 
-                        Result_Warranty_Cards.ScanningTime, 
+                        Result_Packing_Labels.Id, 
+                        Result_Packing_Labels.JenisProduk, 
+                        Result_Packing_Labels.ModelCode, 
+                        Result_Packing_Labels.ModelNumber, 
+                        Result_Packing_Labels.SerialNumber,
+                        Result_Packing_Labels.GlobalCodeId,
+                        Result_Packing_Labels.Register, 
+                        Result_Packing_Labels.ScanningDate, 
+                        Result_Packing_Labels.ScanningTime, 
                         Locations.LocationName AS Location, 
-                        AspNetUsers.Name AS InspectorId 
+                        AspNetUsers.Name AS OperatorId 
                     FROM 
-                        Result_Warranty_Cards 
+                        Result_Packing_Labels 
                     INNER JOIN 
-                        LSBU_Auth.dbo.AspNetUsers 
+                        AspNetUsers 
                     ON 
-                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK 
+                        Result_Packing_Labels.OperatorId = AspNetUsers.NIK 
                     INNER JOIN 
-                        LSBU_Common.dbo.Locations 
+                        Locations 
                     ON 
-                        Result_Warranty_Cards.Location = Locations.Id 
+                        Result_Packing_Labels.Location = Locations.Id 
                     WHERE 
                         SerialNumber LIKE @SerialNumber 
                         AND CAST(ScanningDate AS DATE) = @SelectedDate
-                        AND Locations.LocationName = @Location";
+                        AND Locations.LocationName = @Location
+                    ORDER BY
+                        Id DESC;
+                    ";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -135,12 +143,13 @@ namespace PrintGaransi._Repositories
                             JenisProduk = reader["JenisProduk"].ToString(),
                             ModelCode = reader["ModelCode"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             NoSeri = reader["SerialNumber"].ToString(),
                             NoReg = reader["Register"].ToString(),
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Location = reader["Location"].ToString(),
-                            Inspector = reader["InspectorId"].ToString()
+                            Inspector = reader["OperatorId"].ToString()
                         };
                         results.Add(result);
                     }
@@ -151,7 +160,7 @@ namespace PrintGaransi._Repositories
             return results;
         }
 
-        public void Add(dynamic model)
+        public void Add(GaransiModel model)
         {
             using (var connection = new SqlConnection(LSBUDBPRODUCTION))
             using (var command = new SqlCommand())
@@ -159,16 +168,27 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Location, Register, InspectorId) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Location, @Register, @InspectorId)";
+                command.CommandText = "INSERT INTO Result_Packing_Labels (JenisProduk, ModelCode, ModelNumber, GlobalCodeId, SerialNumber, ScanningDate, ScanningTime, Location, Register, OperatorId) values (@JenisProduk, @ModelCode, @ModelNumber, @GlobalCodeId, @SerialNumber, @ScanningDate, @ScanningTime, @Location, @Register, @OperatorId)";
                 command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
                 command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                 command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
                 command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.NoSeri;
+                command.Parameters.Add("@GlobalCodeId", SqlDbType.VarChar).Value = model.GlobalCodeId;
                 command.Parameters.Add("@ScanningDate", SqlDbType.Date).Value = model.Date;
                 command.Parameters.Add("@ScanningTime", SqlDbType.Time).Value = model.ScanTime;
                 command.Parameters.Add("@Location", SqlDbType.Int).Value = model.Location;
                 command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
-                command.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.inspectorId;
+                command.Parameters.Add("@OperatorId", SqlDbType.VarChar).Value = model.inspectorId;
+                Console.WriteLine($"JenisProduk: {model.JenisProduk}");
+                Console.WriteLine($"ModelCode: {model.ModelCode}");
+                Console.WriteLine($"ModelNumber: {model.ModelNumber}");
+                Console.WriteLine($"SerialNumber: {model.NoSeri}");
+                Console.WriteLine($"ScanningDate: {model.Date}");
+                Console.WriteLine($"ScanningTime: {model.ScanTime}");
+                Console.WriteLine($"Location: {model.Location}");
+                Console.WriteLine($"Register: {model.NoReg}");
+                Console.WriteLine($"OperatorId: {model.inspectorId}");
+
                 command.ExecuteNonQuery();
 
                 connection.Close();
@@ -202,7 +222,7 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetExists(string noSeri, string modelCode)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber = @SerialNumber AND ModelCode = @ModelCode";
+            string query = "SELECT * FROM Result_Packing_Labels WHERE SerialNumber = @SerialNumber AND ModelCode = @ModelCode";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -221,6 +241,7 @@ namespace PrintGaransi._Repositories
                             JenisProduk = reader["JenisProduk"].ToString(),
                             ModelCode = reader["ModelCode"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             NoSeri = reader["SerialNumber"].ToString(),
                             NoReg = reader["Register"].ToString(),
                             Date = reader["ScanningDate"].ToString(),

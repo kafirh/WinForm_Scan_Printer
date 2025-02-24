@@ -6,10 +6,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
-using static PrintGaransi._Repositories.SettingRepository;
-using PrintGaransi.Model;
+using static PrintPackingLabel._Repositories.SettingRepository;
+using PrintPackingLabel.Model;
 
-namespace PrintGaransi._Repositories
+namespace PrintPackingLabel._Repositories
 {
     public class SettingRepository
     {
@@ -17,7 +17,7 @@ namespace PrintGaransi._Repositories
         private int locationId;
         public SettingRepository()
         {
-            DbConnectionCommon = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DbConnectionCommon = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public List<string> GetData()

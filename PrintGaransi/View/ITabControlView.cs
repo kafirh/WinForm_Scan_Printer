@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using PrintGaransi.Model;
+using PrintPackingLabel.Model;
 
-namespace PrintGaransi.View
+namespace PrintPackingLabel.View
 {
     public interface ITabControlView
     {
@@ -11,6 +11,7 @@ namespace PrintGaransi.View
         string SerialNumber { get; set; }
         string ModelCode { get; set; }
         string ModelNumber { get; set; }
+        string GlobalCodeId { get; set; }
         string Register { get; set; }
         string InspectorId { get; set; }
         string Inspector { get; set; }

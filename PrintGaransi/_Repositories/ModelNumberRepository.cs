@@ -1,4 +1,4 @@
-﻿using PrintGaransi.Model;
+﻿using PrintPackingLabel.Model;
 using System.Configuration;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintGaransi._Repositories
+namespace PrintPackingLabel._Repositories
 {
     public class ModelNumberRepository : IModelNumberRepository
     {
@@ -16,12 +16,12 @@ namespace PrintGaransi._Repositories
 
         public ModelNumberRepository()
         {
-            DBConnection = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DBConnection = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public GaransiModel GetByModelCode(GaransiModel model)
         {
-            GaransiModel result = null;
+            GaransiModel result = new GaransiModel();
             string query = "SELECT * FROM GlobalModelCodes WHERE ModelCodeId = @ModelCodeId";
 
             using (SqlConnection connection = new SqlConnection(DBConnection))
@@ -36,8 +36,10 @@ namespace PrintGaransi._Repositories
                     {
                         result = new GaransiModel
                         {
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             NoReg = reader["Register"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString()
+                            
                         };
                     }
                 }

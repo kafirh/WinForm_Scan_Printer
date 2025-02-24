@@ -1,5 +1,5 @@
-﻿using PrintGaransi._Repositories;
-using PrintGaransi.Model;
+﻿using PrintPackingLabel._Repositories;
+using PrintPackingLabel.Model;
 using System;
 using System.Configuration;
 using System.Collections.Generic;
@@ -11,15 +11,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static PrintGaransi.View.IMainFormView;
-using PrintGaransi.Presenter;
+using static PrintPackingLabel.View.IMainFormView;
+using PrintPackingLabel.Presenter;
 using System.Runtime.CompilerServices;
 
-namespace PrintGaransi.View
+namespace PrintPackingLabel.View
 {
     public partial class TabControlView : UserControl, ITabControlView
     {
-        private PrintGaransiLayout _printLayout;
+        private PrintPackingLabelLayout _printLayout;
         private TCPConnection connection;
         private bool disableEvent = false;
         private bool buttonClickedOnce = false;
@@ -30,7 +30,7 @@ namespace PrintGaransi.View
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
-            _printLayout = new PrintGaransiLayout();
+            _printLayout = new PrintPackingLabelLayout();
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             InitializeDateTimePicker();
@@ -57,7 +57,11 @@ namespace PrintGaransi.View
             get { return textBoxCode.Text; }
             set { textBoxCode.Text = value; }
         }
-
+        public string GlobalCodeId
+        {
+            get { return textBoxGlobalCode.Text; }
+            set { textBoxGlobalCode.Text = value; }
+        }
         public string Register
         {
             get { return textBoxRegister.Text; }
@@ -142,13 +146,14 @@ namespace PrintGaransi.View
                 int totalRows = dataGridView2.Rows.Count;
                 row.Cells["No2"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No2"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                row.Cells["No2"].Style.BackColor = Color.Green;
             };
 
             btnManual.Click += delegate
             {
                 if (!buttonClickedOnce)
                 {
-                    btnManual.BackColor = Color.FromArgb(0, 133, 181);
+                    btnManual.BackColor = Color.FromArgb(52, 199, 89);
                     // Logic to execute when button is clicked for the first time
                     btnPrint.Visible = true;
                     btnClear.Visible = true;
@@ -170,7 +175,7 @@ namespace PrintGaransi.View
                 }
                 else
                 {
-                    btnManual.BackColor = Color.FromArgb(27, 60, 115);
+                    btnManual.BackColor = Color.FromArgb(52, 199, 89);
                     btnPrint.Visible = false;
                     btnClear.Visible = false;
                     textBoxSerial.ReadOnly = true;
@@ -206,7 +211,7 @@ namespace PrintGaransi.View
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(27, 60, 115);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 136, 50);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             dataGridView1.DefaultCellStyle.Font = new Font("Arial", 16);
@@ -215,7 +220,7 @@ namespace PrintGaransi.View
             dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
             dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView2.ColumnHeadersHeight = 40;
-            dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(27, 68, 115);
+            dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 136, 50);
             dataGridView2.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             dataGridView2.DefaultCellStyle.Font = new Font("Arial", 16);
@@ -372,6 +377,7 @@ namespace PrintGaransi.View
                 }
                 else
                 {
+
                     CheckProperties?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -399,6 +405,84 @@ namespace PrintGaransi.View
             {
                 SearchFilter?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        private void textBoxSerial_TextChanged(object sender, EventArgs e)
+        {
+            textBoxSerial.Text = textBoxSerial.Text.ToUpper();
+            textBoxSerial.SelectionStart = textBoxSerial.Text.Length;
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            textBoxSearch.Text = textBoxSearch.Text.ToUpper();
+            textBoxSearch.SelectionStart = textBoxSearch.Text.Length;
+        }
+
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        {
+
+            if (e.RowIndex != -1)
+
+            {
+
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                row.DefaultCellStyle.BackColor = Color.FromArgb(40, 167, 69);
+
+            }
+
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+
+        {
+
+            if (e.RowIndex != -1)
+
+            {
+
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                row.DefaultCellStyle.BackColor = Color.Empty;
+
+            }
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timeHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxGlobalCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

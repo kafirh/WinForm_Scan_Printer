@@ -6,19 +6,24 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrintGaransi.Model;
+using PrintPackingLabel.Model;
 
-namespace PrintGaransi._Repositories
+namespace PrintPackingLabel._Repositories
 {
     public class LoginRepository : ILoginRepository
     {
         private readonly string DBConnectionLogin;
         public LoginRepository()
         {
-            DBConnectionLogin = ConfigurationManager.ConnectionStrings["DBConnectionLogin"].ConnectionString;
+            DBConnectionLogin = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public LoginModel GetUserByUsername(string username)
+        {
+            return GetUserByUsernames(username);
+        }
+
+        public LoginModel GetUserByUsernames(string username)
         {
             using (var connection = new SqlConnection(DBConnectionLogin))
             using (var command = new SqlCommand())

@@ -1,12 +1,12 @@
-﻿using PrintGaransi.Model;
-using PrintGaransi.View;
+﻿using PrintPackingLabel.Model;
+using PrintPackingLabel.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintGaransi.Presenter
+namespace PrintPackingLabel.Presenter
 {
     public class TabControlDataPresenter
     {

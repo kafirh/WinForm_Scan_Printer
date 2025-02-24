@@ -1,11 +1,12 @@
-﻿using PrintGaransi._Repositories;
-using PrintGaransi.Model;
-using PrintGaransi.View;
+﻿using PrintPackingLabel._Repositories;
+using PrintPackingLabel.Model;
+using PrintPackingLabel.View;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
 
-namespace PrintGaransi.Presenter
+namespace PrintPackingLabel.Presenter
 {
     public class TabControlPresenter
     {
@@ -61,6 +62,7 @@ namespace PrintGaransi.Presenter
                     JenisProduk = selectedData.JenisProduk,
                     ModelCode = selectedData.ModelCode,
                     ModelNumber = selectedData.ModelNumber,
+                    GlobalCodeId = selectedData.GlobalCodeId,
                     NoReg = selectedData.NoReg,
                     NoSeri = selectedData.NoSeri,
                     Date = selectedData.Date,
@@ -82,7 +84,7 @@ namespace PrintGaransi.Presenter
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
                 _view.Status = "Serial Number harus terisi";
-                _view.StatusBackColor = Color.Salmon;
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
                 return;
             }
@@ -90,15 +92,22 @@ namespace PrintGaransi.Presenter
             if (string.IsNullOrWhiteSpace(_view.ModelCode))
             {
                 _view.Status = "Model Code harus terisi";
-                _view.StatusBackColor = Color.Salmon;
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(_view.Register))
             {
-                _view.Status = "Model Code harus terisi";
-                _view.StatusBackColor = Color.Salmon;
+                _view.Status = "Register harus terisi";
+                _view.StatusBackColor = Color.Yellow;
+                _view.StatusForeColor = Color.Black;
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(_view.GlobalCodeId))
+            {
+                _view.Status = "Global Code harus terisi";
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
                 return;
             }
@@ -108,12 +117,13 @@ namespace PrintGaransi.Presenter
 
             if (existingRecords != null && existingRecords.Any())
             {
-              
-               if( mode == "off")
+                string printerType = _printerType.GetPrinterType();
+
+                if ( mode == "off")
                {
                     _view.Register = "";
                    _view.Status = "Data sudah tersimpan dalam database, Print dalam mode Off";
-                   _view.StatusBackColor = Color.Orange;
+                   _view.StatusBackColor = Color.Yellow;
                    _view.StatusForeColor = Color.Black;
                    return;
                }
@@ -121,7 +131,7 @@ namespace PrintGaransi.Presenter
                 {
                     _view.Register = "";
                     _view.Status = "Print dalam mode Preview";
-                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusBackColor = Color.Yellow;
                     _view.StatusForeColor = Color.Black;
                     return;
                 }
@@ -129,7 +139,7 @@ namespace PrintGaransi.Presenter
                {
                     _view.Register = "";
                    _view.Status = "Data sudah tersimpan dalam database";
-                   _view.StatusBackColor = Color.Orange;
+                   _view.StatusBackColor = Color.Yellow;
                    _view.StatusForeColor = Color.Black;
                    return;
                }
@@ -165,6 +175,7 @@ namespace PrintGaransi.Presenter
                 JenisProduk = _productType.LoadProductType(),
                 ModelCode = _view.ModelCode,
                 ModelNumber = _view.ModelNumber,
+                GlobalCodeId = _view.GlobalCodeId,
                 NoReg = _view.Register,
                 NoSeri = _view.SerialNumber,
                 Date = date,
@@ -178,18 +189,17 @@ namespace PrintGaransi.Presenter
                 if (existingRecords == null || !existingRecords.Any())
                 {
                     // Data belum ada dalam database
-                    _view.Register = "";
                     _view.Status = "Data berhasil tersimpan, print dalam mode OFF.";
                     _view.StatusBackColor = Color.Green;
                     _view.StatusForeColor = Color.White;
                     _garansiRepository.Add(model);
+                    _view.SerialNumber = "";
                 }
                 else
                 {
                     // Data sudah ada dalam database
-                    _view.Register = "";
                     _view.Status = "Data sudah tersimpan dalam database, Print dalam mode OFF";
-                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusBackColor = Color.Yellow;
                     _view.StatusForeColor = Color.Black;
                 }
             }
@@ -197,7 +207,7 @@ namespace PrintGaransi.Presenter
             {             
                 // Data sudah ada dalam database
                 _view.Status = "Print dalam mode Preview";
-                _view.StatusBackColor = Color.Orange;
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
                 _view.ShowPrintPreviewDialog(model, printerType);
             }
@@ -207,7 +217,6 @@ namespace PrintGaransi.Presenter
                 {
                     // Data belum ada dalam database, print diizinkan
                     _view.ShowPrintPreviewDialog(model, printerType);
-                    _view.Register = "";
                     _view.Status = "Data berhasil di simpan";
                     _view.StatusBackColor = Color.Green;
                     _view.StatusForeColor = Color.White;
@@ -216,9 +225,8 @@ namespace PrintGaransi.Presenter
                 else
                 {
                     // Data sudah ada dalam database
-                    _view.Register = "";
                     _view.Status = "Data sudah tersimpan dalam database.";
-                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusBackColor = Color.Yellow;
                     _view.StatusForeColor = Color.Black;
                 }
             }
@@ -264,14 +272,15 @@ namespace PrintGaransi.Presenter
 
            if (searchModel != null)
            {
-               _view.ModelNumber = searchModel.ModelNumber;
-               _view.Register = searchModel.NoReg;
+                _view.ModelNumber = searchModel.ModelNumber;
+                _view.GlobalCodeId = searchModel.GlobalCodeId;
+                _view.Register = searchModel.NoReg;
             }
            else
            {
                ClearViewFields();
                 _view.Status = "Hasil scan tidak terbaca";
-                _view.StatusBackColor = Color.Salmon;
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
            }
         }
@@ -283,6 +292,7 @@ namespace PrintGaransi.Presenter
             _view.ModelNumber = "";
             _view.Register = "";
             _view.Status = "";
+            _view.GlobalCodeId = "";
             _view.StatusBackColor = SystemColors.Control;
         } 
         

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintGaransi.View
+namespace PrintPackingLabel.View
 {
     public interface ISettingView
     {
@@ -13,6 +13,7 @@ namespace PrintGaransi.View
         string ipaddress { get; set; }
         string portaddress { get; set; }
         string mode { get; set; }
+        bool IsCheckBoxChecked { get; set; }
 
         event EventHandler SelectedIndexChanged;
         event EventHandler SaveIPSettings;
@@ -25,6 +26,7 @@ namespace PrintGaransi.View
         event EventHandler HandleRadioButton;
         event EventHandler SelectedPrinterType;
         event EventHandler LoadPrinterType;
+        event EventHandler HandleCheckBox;
 
         void DisplayName(string JPName);
         void DisplayIP(string IPaddress);

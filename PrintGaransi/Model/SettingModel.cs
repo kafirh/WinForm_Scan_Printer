@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PrintGaransi.Model
+namespace PrintPackingLabel.Model
 {
     public class SettingModel
     {

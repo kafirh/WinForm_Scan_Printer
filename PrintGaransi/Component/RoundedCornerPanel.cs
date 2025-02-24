@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace PrintGaransi.Resource
+namespace PrintPackingLabel.Resource
 {
     [ToolboxItem(true)] // Ensure the control is visible in the Toolbox
     public class RDPanel : Panel

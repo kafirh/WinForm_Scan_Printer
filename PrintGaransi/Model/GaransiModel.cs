@@ -7,12 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace PrintGaransi.Model
+namespace PrintPackingLabel.Model
 {
     public class GaransiModel
     {
         public string id;
         public string jenisProduk;
+        public string globalCodeId;
         public string modelNumber;
         public string noReg;
         public string noSeri;
@@ -38,6 +39,13 @@ namespace PrintGaransi.Model
         {
             get => jenisProduk;
             set => jenisProduk = value;
+        }
+
+        [DisplayName("Global Code ID")]
+        public string GlobalCodeId
+        {
+            get => globalCodeId;
+            set => globalCodeId = value;
         }
 
         [DisplayName("Model Number")]
@@ -85,7 +93,7 @@ namespace PrintGaransi.Model
             set => scanTime = value;
         }
 
-        [DisplayName("Inspector")]
+        [DisplayName("Operator")]
         public string Inspector
         {
             get => inspectorId;

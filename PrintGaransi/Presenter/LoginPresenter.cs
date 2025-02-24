@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrintGaransi.Model;
-using PrintGaransi.View;
-using PrintGaransi._Repositories;
+using PrintPackingLabel.Model;
+using PrintPackingLabel.View;
+using PrintPackingLabel._Repositories;
 
-namespace PrintGaransi.Presenter
+namespace PrintPackingLabel.Presenter
 {
     public class LoginPresenter
     {
@@ -37,8 +37,8 @@ namespace PrintGaransi.Presenter
                 if(isPasswordValid)
                 {
                     _view.CloseView();
-                    IMainFormView printGaransiView = MainForm.GetInstance(user);
-                    printGaransiView.Show();
+                    IMainFormView PrintPackingLabelView = MainForm.GetInstance(user);
+                    PrintPackingLabelView.Show();
                 }
                 else
                 {

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintPackingLabel", "PrintGaransi\PrintPackingLabel.csproj", "{37D45C39-273C-48A7-BA17-12DC11CA38AD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GaransiSetup", "GaransiSetup\GaransiSetup.vdproj", "{A722DC45-9538-4DA2-BBCF-C3E6AE54AE85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37D45C39-273C-48A7-BA17-12DC11CA38AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D45C39-273C-48A7-BA17-12DC11CA38AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D45C39-273C-48A7-BA17-12DC11CA38AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D45C39-273C-48A7-BA17-12DC11CA38AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A722DC45-9538-4DA2-BBCF-C3E6AE54AE85}.Debug|Any CPU.ActiveCfg = Debug
+		{A722DC45-9538-4DA2-BBCF-C3E6AE54AE85}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD763462-D9C0-4847-A65F-4FF3ABECECFF}
+	EndGlobalSection
+EndGlobal

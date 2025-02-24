@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using PrintGaransi.Properties;
+using PrintPackingLabel.Properties;
 using System.IO;
 
-namespace PrintGaransi
+namespace PrintPackingLabel
 {
     public class TCPConnection
     {
@@ -108,6 +108,7 @@ namespace PrintGaransi
         private void ProcessMessage(string message)
         {
             string cleanedData = Regex.Replace(message, "<.*?>", "");
+            Console.WriteLine($"Received data: {cleanedData}");
             splitData1(cleanedData);
             splitData2(cleanedData);
         }

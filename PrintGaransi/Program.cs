@@ -1,10 +1,10 @@
-using PrintGaransi._Repositories;
-using PrintGaransi.Model;
-using PrintGaransi.Presenter;
-using PrintGaransi.View;
+using PrintPackingLabel._Repositories;
+using PrintPackingLabel.Model;
+using PrintPackingLabel.Presenter;
+using PrintPackingLabel.View;
 using System.Configuration;
 
-namespace PrintGaransi
+namespace PrintPackingLabel
 {
     internal static class Program
     {
@@ -17,7 +17,7 @@ namespace PrintGaransi
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();
-            //.Run(new PrintGaransiView());
+            //.Run(new PrintPackingLabelView());
 
             ApplicationConfiguration.Initialize();
             ILoginView view = new LoginView();

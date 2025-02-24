@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrintGaransi.Model
+namespace PrintPackingLabel.Model
 {
     public class PrintModeModel
     {

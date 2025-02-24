@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrintGaransi.View
+namespace PrintPackingLabel.View
 {
     public partial class CustomeMessageBox : Form
     {
@@ -118,5 +118,9 @@ namespace PrintGaransi.View
             this.button2.Visible = false;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

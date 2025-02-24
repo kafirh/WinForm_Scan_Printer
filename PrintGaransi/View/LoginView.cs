@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualBasic.Logging;
-using PrintGaransi._Repositories;
-using PrintGaransi.Model;
-using PrintGaransi.Presenter;
+using PrintPackingLabel._Repositories;
+using PrintPackingLabel.Model;
+using PrintPackingLabel.Presenter;
 using System;
 using System.Configuration;
 using System.Windows.Forms;
 
-namespace PrintGaransi.View
+namespace PrintPackingLabel.View
 {
     public partial class LoginView : Form, ILoginView
     {
@@ -94,6 +94,21 @@ namespace PrintGaransi.View
         private void LoginView_Load(object sender, EventArgs e)
         {
             textBoxNik.Focus();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

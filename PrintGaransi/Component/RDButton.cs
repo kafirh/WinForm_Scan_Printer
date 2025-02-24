@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace PrintGaransi.Resource
+namespace PrintPackingLabel.Resource
 {
     public class RDButton : Button
     {

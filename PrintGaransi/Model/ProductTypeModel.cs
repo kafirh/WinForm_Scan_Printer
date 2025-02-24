@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrintGaransi._Repositories;
+using PrintPackingLabel._Repositories;
 
-namespace PrintGaransi.Model
+namespace PrintPackingLabel.Model
 {
     public class ProductTypeModel
     {
