@@ -73,7 +73,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(40, 167, 69);
             label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Arial", 27F, FontStyle.Bold);
+            label2.Font = new Font("Arial", 30F, FontStyle.Bold);
             label2.ForeColor = Color.White;
             label2.Location = new Point(785, 0);
             label2.Name = "label2";

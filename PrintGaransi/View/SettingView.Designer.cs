@@ -49,55 +49,72 @@
             printerBox = new ComboBox();
             checkBox = new CheckBox();
             label9 = new Label();
+            panelTop = new Panel();
+            panelBottom = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panelTop.SuspendLayout();
+            panelBottom.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // textBoxIP
             // 
-            textBoxIP.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(309, 289);
+            textBoxIP.Dock = DockStyle.Fill;
+            textBoxIP.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxIP.Location = new Point(284, 155);
             textBoxIP.Margin = new Padding(3, 4, 3, 4);
             textBoxIP.Name = "textBoxIP";
-            textBoxIP.Size = new Size(351, 37);
+            textBoxIP.Size = new Size(442, 41);
             textBoxIP.TabIndex = 0;
             // 
             // textBoxPort
             // 
-            textBoxPort.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(309, 356);
+            textBoxPort.Dock = DockStyle.Fill;
+            textBoxPort.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPort.Location = new Point(284, 207);
             textBoxPort.Margin = new Padding(3, 4, 3, 4);
             textBoxPort.Name = "textBoxPort";
-            textBoxPort.Size = new Size(351, 37);
+            textBoxPort.Size = new Size(442, 41);
             textBoxPort.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label1.Location = new Point(109, 293);
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(43, 151);
             label1.Name = "label1";
-            label1.Size = new Size(150, 32);
+            label1.Size = new Size(235, 52);
             label1.TabIndex = 2;
             label1.Text = "Camera IP";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label2.Location = new Point(109, 364);
+            label2.Location = new Point(43, 203);
             label2.Name = "label2";
-            label2.Size = new Size(179, 32);
+            label2.Size = new Size(235, 52);
             label2.TabIndex = 3;
             label2.Text = "Camera Port";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(318, 32);
+            label3.Location = new Point(0, 0);
+            label3.Margin = new Padding(3, 10, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(171, 51);
+            label3.Size = new Size(770, 100);
             label3.TabIndex = 5;
             label3.Text = "Setting";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             label3.Click += label3_Click;
             // 
             // tableLayoutPanel4
@@ -118,21 +135,25 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label4.Location = new Point(109, 460);
+            label4.Location = new Point(43, 307);
             label4.Name = "label4";
-            label4.Size = new Size(129, 32);
+            label4.Size = new Size(235, 52);
             label4.TabIndex = 6;
             label4.Text = "Location";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // locationBox
             // 
+            locationBox.Dock = DockStyle.Fill;
+            locationBox.DropDownStyle = ComboBoxStyle.DropDownList;
             locationBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             locationBox.FormattingEnabled = true;
-            locationBox.Location = new Point(312, 455);
+            locationBox.Location = new Point(284, 311);
             locationBox.Margin = new Padding(3, 4, 3, 4);
             locationBox.Name = "locationBox";
-            locationBox.Size = new Size(348, 41);
+            locationBox.Size = new Size(442, 41);
             locationBox.TabIndex = 7;
             // 
             // btnConnect
@@ -147,7 +168,7 @@
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(157, 737);
+            btnConnect.Location = new Point(151, 62);
             btnConnect.Margin = new Padding(3, 4, 3, 4);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(171, 53);
@@ -159,38 +180,44 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label5.Location = new Point(109, 540);
+            label5.Location = new Point(43, 359);
             label5.Name = "label5";
-            label5.Size = new Size(187, 32);
+            label5.Size = new Size(235, 52);
             label5.TabIndex = 9;
             label5.Text = "Jenis Produk";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // JPComboBox
             // 
+            JPComboBox.Dock = DockStyle.Fill;
+            JPComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             JPComboBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             JPComboBox.FormattingEnabled = true;
-            JPComboBox.Location = new Point(312, 528);
+            JPComboBox.Location = new Point(284, 363);
             JPComboBox.Margin = new Padding(3, 4, 3, 4);
             JPComboBox.Name = "JPComboBox";
-            JPComboBox.Size = new Size(348, 41);
+            JPComboBox.Size = new Size(442, 41);
             JPComboBox.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Dock = DockStyle.Fill;
             label6.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(106, 221);
+            label6.Location = new Point(43, 99);
             label6.Name = "label6";
-            label6.Size = new Size(155, 32);
+            label6.Size = new Size(235, 52);
             label6.TabIndex = 2;
             label6.Text = "Print Mode";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnOn
             // 
             btnOn.AutoSize = true;
             btnOn.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOn.Location = new Point(318, 220);
+            btnOn.Location = new Point(3, 4);
             btnOn.Margin = new Padding(3, 4, 3, 4);
             btnOn.Name = "btnOn";
             btnOn.Size = new Size(83, 43);
@@ -204,7 +231,7 @@
             // 
             btnOff.AutoSize = true;
             btnOff.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOff.Location = new Point(409, 220);
+            btnOff.Location = new Point(92, 4);
             btnOff.Margin = new Padding(3, 4, 3, 4);
             btnOff.Name = "btnOff";
             btnOff.Size = new Size(83, 43);
@@ -225,7 +252,7 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(422, 737);
+            btnClose.Location = new Point(427, 62);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(171, 53);
@@ -238,11 +265,12 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Dock = DockStyle.Fill;
             label7.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(309, 401);
+            label7.Location = new Point(284, 255);
             label7.Name = "label7";
-            label7.Size = new Size(399, 22);
+            label7.Size = new Size(442, 26);
             label7.TabIndex = 12;
             label7.Text = "*Click button Connect after change IP/Port";
             // 
@@ -250,7 +278,7 @@
             // 
             btnPreview.AutoSize = true;
             btnPreview.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPreview.Location = new Point(498, 221);
+            btnPreview.Location = new Point(181, 4);
             btnPreview.Margin = new Padding(3, 4, 3, 4);
             btnPreview.Name = "btnPreview";
             btnPreview.Size = new Size(155, 43);
@@ -262,71 +290,132 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Dock = DockStyle.Fill;
             label8.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label8.Location = new Point(109, 608);
+            label8.Location = new Point(43, 411);
             label8.Name = "label8";
-            label8.Size = new Size(103, 32);
+            label8.Size = new Size(235, 52);
             label8.TabIndex = 9;
             label8.Text = "Printer";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // printerBox
             // 
+            printerBox.Dock = DockStyle.Fill;
+            printerBox.DropDownStyle = ComboBoxStyle.DropDownList;
             printerBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             printerBox.FormattingEnabled = true;
-            printerBox.Location = new Point(312, 596);
+            printerBox.Location = new Point(284, 415);
             printerBox.Margin = new Padding(3, 4, 3, 4);
             printerBox.Name = "printerBox";
-            printerBox.Size = new Size(348, 41);
+            printerBox.Size = new Size(442, 41);
             printerBox.TabIndex = 10;
             // 
             // checkBox
             // 
             checkBox.AutoSize = true;
             checkBox.Cursor = Cursors.Hand;
+            checkBox.Dock = DockStyle.Fill;
             checkBox.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox.Location = new Point(318, 155);
+            checkBox.ImageAlign = ContentAlignment.MiddleLeft;
+            checkBox.Location = new Point(284, 51);
             checkBox.Margin = new Padding(3, 4, 3, 4);
             checkBox.Name = "checkBox";
-            checkBox.Size = new Size(167, 43);
+            checkBox.Size = new Size(442, 44);
             checkBox.TabIndex = 13;
             checkBox.Text = "checklist";
             checkBox.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(109, 155);
+            label9.Location = new Point(43, 47);
             label9.Name = "label9";
-            label9.Size = new Size(213, 32);
+            label9.Size = new Size(235, 52);
             label9.TabIndex = 2;
             label9.Text = "Actived Setting";
+            label9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelTop
+            // 
+            panelTop.Controls.Add(label3);
+            panelTop.Dock = DockStyle.Top;
+            panelTop.Location = new Point(0, 0);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new Size(770, 100);
+            panelTop.TabIndex = 14;
+            // 
+            // panelBottom
+            // 
+            panelBottom.Controls.Add(btnConnect);
+            panelBottom.Controls.Add(btnClose);
+            panelBottom.Dock = DockStyle.Bottom;
+            panelBottom.Location = new Point(0, 634);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new Size(770, 223);
+            panelBottom.TabIndex = 15;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.Controls.Add(label9, 1, 1);
+            tableLayoutPanel1.Controls.Add(label6, 1, 2);
+            tableLayoutPanel1.Controls.Add(checkBox, 2, 1);
+            tableLayoutPanel1.Controls.Add(printerBox, 2, 9);
+            tableLayoutPanel1.Controls.Add(label7, 2, 5);
+            tableLayoutPanel1.Controls.Add(JPComboBox, 2, 8);
+            tableLayoutPanel1.Controls.Add(label8, 1, 9);
+            tableLayoutPanel1.Controls.Add(locationBox, 2, 7);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 2);
+            tableLayoutPanel1.Controls.Add(label1, 1, 3);
+            tableLayoutPanel1.Controls.Add(label5, 1, 8);
+            tableLayoutPanel1.Controls.Add(label2, 1, 4);
+            tableLayoutPanel1.Controls.Add(textBoxIP, 2, 3);
+            tableLayoutPanel1.Controls.Add(label4, 1, 7);
+            tableLayoutPanel1.Controls.Add(textBoxPort, 2, 4);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 100);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 11;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tableLayoutPanel1.Size = new Size(770, 534);
+            tableLayoutPanel1.TabIndex = 16;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnOn);
+            flowLayoutPanel1.Controls.Add(btnOff);
+            flowLayoutPanel1.Controls.Add(btnPreview);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(284, 102);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(442, 46);
+            flowLayoutPanel1.TabIndex = 17;
             // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(770, 857);
-            Controls.Add(checkBox);
-            Controls.Add(label7);
-            Controls.Add(btnPreview);
-            Controls.Add(btnOff);
-            Controls.Add(btnOn);
-            Controls.Add(printerBox);
-            Controls.Add(label8);
-            Controls.Add(JPComboBox);
-            Controls.Add(label5);
-            Controls.Add(btnClose);
-            Controls.Add(btnConnect);
-            Controls.Add(locationBox);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label9);
-            Controls.Add(label6);
-            Controls.Add(label1);
-            Controls.Add(textBoxPort);
-            Controls.Add(textBoxIP);
+            Controls.Add(tableLayoutPanel1);
+            Controls.Add(panelBottom);
+            Controls.Add(panelTop);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
@@ -334,8 +423,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Setting";
             Load += SettingView_Load;
+            panelTop.ResumeLayout(false);
+            panelBottom.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -363,5 +457,9 @@
         private ComboBox printerBox;
         private CheckBox checkBox;
         private Label label9;
+        private Panel panelTop;
+        private Panel panelBottom;
+        private TableLayoutPanel tableLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

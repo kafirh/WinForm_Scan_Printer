@@ -97,21 +97,6 @@ namespace PrintPackingLabel.Presenter
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(_view.Register))
-            {
-                _view.Status = "Register harus terisi";
-                _view.StatusBackColor = Color.Yellow;
-                _view.StatusForeColor = Color.Black;
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(_view.GlobalCodeId))
-            {
-                _view.Status = "Global Code harus terisi";
-                _view.StatusBackColor = Color.Yellow;
-                _view.StatusForeColor = Color.Black;
-                return;
-            }
-
             var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
             string mode = _printMode.GetMode();
 

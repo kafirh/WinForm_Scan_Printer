@@ -33,26 +33,12 @@ namespace PrintPackingLabel.Model
             get => id;
             set => id = value;
         }
-        [DisplayName("Jenis Produk")]
-        //[Browsable(false)]
-        public string JenisProduk
-        {
-            get => jenisProduk;
-            set => jenisProduk = value;
-        }
 
-        [DisplayName("Global Code ID")]
-        public string GlobalCodeId
+        [DisplayName("Serial Number")]
+        public string NoSeri
         {
-            get => globalCodeId;
-            set => globalCodeId = value;
-        }
-
-        [DisplayName("Model Number")]
-        public string ModelNumber
-        {
-            get => modelNumber;
-            set => modelNumber = value;
+            get => noSeri;
+            set => noSeri = value;
         }
 
         [DisplayName("Model Code")]
@@ -63,6 +49,19 @@ namespace PrintPackingLabel.Model
             set => modelCode = value;
         }
 
+        [DisplayName("Model Number")]
+        public string ModelNumber
+        {
+            get => modelNumber;
+            set => modelNumber = value;
+        }
+
+        [DisplayName("Global Code ID")]
+        public string GlobalCodeId
+        {
+            get => globalCodeId;
+            set => globalCodeId = value;
+        }
 
         [DisplayName("No. Register")]
         public string NoReg
@@ -70,14 +69,6 @@ namespace PrintPackingLabel.Model
             get => noReg;
             set => noReg = value;
         }
-
-        [DisplayName("Serial Number")]
-        public string NoSeri
-        {
-            get => noSeri;
-            set => noSeri = value;
-        }
-
 
         [DisplayName("Scanning Date")]
         public string Date
@@ -106,6 +97,13 @@ namespace PrintPackingLabel.Model
         {
             get => location;
             set => location = value;
+        }
+        [DisplayName("Jenis Produk")]
+        //[Browsable(false)]
+        public string JenisProduk
+        {
+            get => jenisProduk;
+            set => jenisProduk = value;
         }
 
         public void SaveScanTime(string myData)

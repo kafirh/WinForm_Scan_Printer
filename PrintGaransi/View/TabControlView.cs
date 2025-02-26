@@ -168,6 +168,7 @@ namespace PrintPackingLabel.View
                     SerialNumber = "";
                     ModelCode = "";
                     ModelNumber = "";
+                    GlobalCodeId = "";
                     Register = "";
                     Status = "";
 
@@ -189,6 +190,7 @@ namespace PrintPackingLabel.View
                     SerialNumber = "";
                     ModelCode = "";
                     ModelNumber = "";
+                    GlobalCodeId = "";
                     Register = "";
                     Status = "";
 
@@ -202,6 +204,7 @@ namespace PrintPackingLabel.View
                 SerialNumber = "";
                 ModelCode = "";
                 ModelNumber = "";
+                GlobalCodeId = "";
                 Register = "";
                 Status = "";
                 textBoxStatus.BackColor = SystemColors.Control;
@@ -324,6 +327,7 @@ namespace PrintPackingLabel.View
                 textBoxSerial.Text = message;
             }
             PerformModelSearch();
+            CheckProperties?.Invoke(this, EventArgs.Empty);
         }
 
         public void UpdateCodeBox(string message)
@@ -377,8 +381,6 @@ namespace PrintPackingLabel.View
                 }
                 else
                 {
-
-                    CheckProperties?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -481,6 +483,11 @@ namespace PrintPackingLabel.View
         }
 
         private void textBoxGlobalCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
         {
 
         }
