@@ -81,6 +81,7 @@
             label2.TabIndex = 2;
             label2.Text = "Laundry System Business Unit";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // label1
             // 

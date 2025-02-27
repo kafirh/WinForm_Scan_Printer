@@ -49,27 +49,30 @@
             No1 = new DataGridViewTextBoxColumn();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
+            textBoxLastInput = new TextBox();
+            pictureBox10 = new PictureBox();
             label4 = new Label();
-            textBoxModelNumber = new TextBox();
-            textBoxCode = new TextBox();
-            label7 = new Label();
             textBoxSerial = new TextBox();
-            label8 = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox5 = new PictureBox();
             label5 = new Label();
-            textBoxStatus = new TextBox();
             label12 = new Label();
             pictureBox6 = new PictureBox();
-            textBoxInspector = new TextBox();
+            pictureBox4 = new PictureBox();
             label6 = new Label();
+            pictureBox9 = new PictureBox();
             label16 = new Label();
+            pictureBox3 = new PictureBox();
+            label8 = new Label();
+            pictureBox2 = new PictureBox();
+            label7 = new Label();
+            textBoxStatus = new TextBox();
+            textBoxInspector = new TextBox();
             textBoxRegister = new TextBox();
             textBoxGlobalCode = new TextBox();
-            pictureBox4 = new PictureBox();
-            pictureBox9 = new PictureBox();
+            textBoxModelNumber = new TextBox();
+            textBoxCode = new TextBox();
+            label17 = new Label();
             tableLayoutPanel6 = new TableLayoutPanel();
             btnManual = new Resource.RDButton();
             btnPrint = new Resource.RDButton();
@@ -110,13 +113,14 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -355,11 +359,12 @@
             tableLayoutPanel2.Margin = new Padding(0, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 35.2748146F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 64.72518F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 38.47416F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 61.52584F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel2.Size = new Size(1471, 1219);
             tableLayoutPanel2.TabIndex = 8;
+            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
             // dataGridView1
             // 
@@ -370,13 +375,13 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { No1 });
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(3, 434);
+            dataGridView1.Location = new Point(3, 473);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1465, 781);
+            dataGridView1.Size = new Size(1465, 742);
             dataGridView1.TabIndex = 2;
             // 
             // No1
@@ -403,7 +408,7 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1468, 422);
+            tableLayoutPanel3.Size = new Size(1468, 461);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -412,86 +417,80 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.018802F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.068943F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.9122543F));
+            tableLayoutPanel5.Controls.Add(textBoxLastInput, 2, 1);
+            tableLayoutPanel5.Controls.Add(pictureBox10, 0, 1);
             tableLayoutPanel5.Controls.Add(label4, 1, 0);
-            tableLayoutPanel5.Controls.Add(textBoxModelNumber, 2, 2);
-            tableLayoutPanel5.Controls.Add(textBoxCode, 2, 1);
-            tableLayoutPanel5.Controls.Add(label7, 1, 1);
             tableLayoutPanel5.Controls.Add(textBoxSerial, 2, 0);
-            tableLayoutPanel5.Controls.Add(label8, 1, 2);
             tableLayoutPanel5.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel5.Controls.Add(pictureBox2, 0, 1);
-            tableLayoutPanel5.Controls.Add(pictureBox3, 0, 2);
-            tableLayoutPanel5.Controls.Add(pictureBox5, 0, 6);
-            tableLayoutPanel5.Controls.Add(label5, 1, 6);
-            tableLayoutPanel5.Controls.Add(textBoxStatus, 2, 6);
-            tableLayoutPanel5.Controls.Add(label12, 1, 5);
-            tableLayoutPanel5.Controls.Add(pictureBox6, 0, 5);
-            tableLayoutPanel5.Controls.Add(textBoxInspector, 2, 5);
-            tableLayoutPanel5.Controls.Add(label6, 1, 4);
-            tableLayoutPanel5.Controls.Add(label16, 1, 3);
-            tableLayoutPanel5.Controls.Add(textBoxRegister, 2, 4);
-            tableLayoutPanel5.Controls.Add(textBoxGlobalCode, 2, 3);
-            tableLayoutPanel5.Controls.Add(pictureBox4, 0, 4);
-            tableLayoutPanel5.Controls.Add(pictureBox9, 0, 3);
+            tableLayoutPanel5.Controls.Add(pictureBox5, 0, 7);
+            tableLayoutPanel5.Controls.Add(label5, 1, 7);
+            tableLayoutPanel5.Controls.Add(label12, 1, 6);
+            tableLayoutPanel5.Controls.Add(pictureBox6, 0, 6);
+            tableLayoutPanel5.Controls.Add(pictureBox4, 0, 5);
+            tableLayoutPanel5.Controls.Add(label6, 1, 5);
+            tableLayoutPanel5.Controls.Add(pictureBox9, 0, 4);
+            tableLayoutPanel5.Controls.Add(label16, 1, 4);
+            tableLayoutPanel5.Controls.Add(pictureBox3, 0, 3);
+            tableLayoutPanel5.Controls.Add(label8, 1, 3);
+            tableLayoutPanel5.Controls.Add(pictureBox2, 0, 2);
+            tableLayoutPanel5.Controls.Add(label7, 1, 2);
+            tableLayoutPanel5.Controls.Add(textBoxStatus, 2, 7);
+            tableLayoutPanel5.Controls.Add(textBoxInspector, 2, 6);
+            tableLayoutPanel5.Controls.Add(textBoxRegister, 2, 5);
+            tableLayoutPanel5.Controls.Add(textBoxGlobalCode, 2, 4);
+            tableLayoutPanel5.Controls.Add(textBoxModelNumber, 2, 3);
+            tableLayoutPanel5.Controls.Add(textBoxCode, 2, 2);
+            tableLayoutPanel5.Controls.Add(label17, 1, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 4);
             tableLayoutPanel5.Margin = new Padding(0, 4, 3, 4);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 7;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.28777F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.285573F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.285573F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.285573F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2903013F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849188F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2803011F));
-            tableLayoutPanel5.Size = new Size(1004, 414);
+            tableLayoutPanel5.RowCount = 8;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel5.Size = new Size(1004, 453);
             tableLayoutPanel5.TabIndex = 7;
+            // 
+            // textBoxLastInput
+            // 
+            textBoxLastInput.Dock = DockStyle.Fill;
+            textBoxLastInput.Font = new Font("Arial", 18F);
+            textBoxLastInput.Location = new Point(284, 60);
+            textBoxLastInput.Margin = new Padding(3, 4, 3, 4);
+            textBoxLastInput.Name = "textBoxLastInput";
+            textBoxLastInput.ReadOnly = true;
+            textBoxLastInput.Size = new Size(717, 42);
+            textBoxLastInput.TabIndex = 24;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(3, 60);
+            pictureBox10.Margin = new Padding(3, 4, 3, 4);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(54, 41);
+            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 23;
+            pictureBox10.TabStop = false;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = SystemColors.Control;
             label4.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label4.Location = new Point(63, 11);
-            label4.Margin = new Padding(3, 11, 3, 0);
+            label4.Location = new Point(63, 3);
+            label4.Margin = new Padding(3);
             label4.Name = "label4";
             label4.Size = new Size(161, 35);
             label4.TabIndex = 5;
-            label4.Text = "No. Serial ";
-            // 
-            // textBoxModelNumber
-            // 
-            textBoxModelNumber.Dock = DockStyle.Fill;
-            textBoxModelNumber.Font = new Font("Arial", 18F);
-            textBoxModelNumber.Location = new Point(284, 122);
-            textBoxModelNumber.Margin = new Padding(3, 4, 3, 4);
-            textBoxModelNumber.Name = "textBoxModelNumber";
-            textBoxModelNumber.ReadOnly = true;
-            textBoxModelNumber.Size = new Size(717, 42);
-            textBoxModelNumber.TabIndex = 1;
-            // 
-            // textBoxCode
-            // 
-            textBoxCode.Dock = DockStyle.Fill;
-            textBoxCode.Font = new Font("Arial", 18F);
-            textBoxCode.Location = new Point(284, 63);
-            textBoxCode.Margin = new Padding(3, 4, 3, 4);
-            textBoxCode.Name = "textBoxCode";
-            textBoxCode.ReadOnly = true;
-            textBoxCode.Size = new Size(717, 42);
-            textBoxCode.TabIndex = 2;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label7.Location = new Point(63, 70);
-            label7.Margin = new Padding(3, 11, 3, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(184, 35);
-            label7.TabIndex = 6;
-            label7.Text = "Model Code";
+            label4.Text = "Input Data";
             // 
             // textBoxSerial
             // 
@@ -506,17 +505,6 @@
             textBoxSerial.TextChanged += textBoxSerial_TextChanged;
             textBoxSerial.KeyDown += textBoxSerial_KeyDown;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label8.Location = new Point(63, 129);
-            label8.Margin = new Padding(3, 11, 3, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(128, 48);
-            label8.TabIndex = 7;
-            label8.Text = "Model Number";
-            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -529,35 +517,11 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(3, 63);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(54, 45);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 12;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(3, 122);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(54, 45);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 13;
-            pictureBox3.TabStop = false;
-            // 
             // pictureBox5
             // 
             pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(3, 358);
+            pictureBox5.Location = new Point(3, 396);
             pictureBox5.Margin = new Padding(3, 4, 3, 4);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(54, 47);
@@ -569,31 +533,20 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label5.Location = new Point(63, 365);
-            label5.Margin = new Padding(3, 11, 3, 0);
+            label5.Location = new Point(63, 395);
+            label5.Margin = new Padding(3);
             label5.Name = "label5";
             label5.Size = new Size(107, 35);
             label5.TabIndex = 8;
             label5.Text = "Status";
             label5.Click += label5_Click;
             // 
-            // textBoxStatus
-            // 
-            textBoxStatus.BackColor = SystemColors.Control;
-            textBoxStatus.Dock = DockStyle.Fill;
-            textBoxStatus.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStatus.Location = new Point(284, 358);
-            textBoxStatus.Margin = new Padding(3, 4, 3, 4);
-            textBoxStatus.Name = "textBoxStatus";
-            textBoxStatus.Size = new Size(717, 42);
-            textBoxStatus.TabIndex = 10;
-            // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label12.Location = new Point(63, 306);
-            label12.Margin = new Padding(3, 11, 3, 0);
+            label12.Location = new Point(63, 339);
+            label12.Margin = new Padding(3);
             label12.Name = "label12";
             label12.Size = new Size(150, 35);
             label12.TabIndex = 16;
@@ -603,7 +556,7 @@
             // 
             pictureBox6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(3, 299);
+            pictureBox6.Location = new Point(3, 340);
             pictureBox6.Margin = new Padding(3, 4, 3, 4);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(54, 43);
@@ -611,45 +564,127 @@
             pictureBox6.TabIndex = 18;
             pictureBox6.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 284);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(54, 43);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 14;
+            pictureBox4.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial", 18F, FontStyle.Bold);
+            label6.Location = new Point(63, 283);
+            label6.Margin = new Padding(3);
+            label6.Name = "label6";
+            label6.Size = new Size(192, 35);
+            label6.TabIndex = 8;
+            label6.Text = "No. Register";
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(3, 228);
+            pictureBox9.Margin = new Padding(3, 4, 3, 4);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(54, 42);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 21;
+            pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Arial", 18F, FontStyle.Bold);
+            label16.Location = new Point(63, 227);
+            label16.Margin = new Padding(3);
+            label16.Name = "label16";
+            label16.Size = new Size(190, 35);
+            label16.TabIndex = 19;
+            label16.Text = "Global Code";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(3, 172);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(54, 43);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial", 18F, FontStyle.Bold);
+            label8.Location = new Point(63, 171);
+            label8.Margin = new Padding(3);
+            label8.Name = "label8";
+            label8.Size = new Size(128, 50);
+            label8.TabIndex = 7;
+            label8.Text = "Model Number";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(3, 116);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(54, 43);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial", 18F, FontStyle.Bold);
+            label7.Location = new Point(63, 115);
+            label7.Margin = new Padding(3);
+            label7.Name = "label7";
+            label7.Size = new Size(184, 35);
+            label7.TabIndex = 6;
+            label7.Text = "Model Code";
+            // 
+            // textBoxStatus
+            // 
+            textBoxStatus.BackColor = SystemColors.Control;
+            textBoxStatus.Dock = DockStyle.Fill;
+            textBoxStatus.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStatus.Location = new Point(284, 396);
+            textBoxStatus.Margin = new Padding(3, 4, 3, 4);
+            textBoxStatus.Name = "textBoxStatus";
+            textBoxStatus.Size = new Size(717, 42);
+            textBoxStatus.TabIndex = 10;
+            // 
             // textBoxInspector
             // 
             textBoxInspector.BackColor = SystemColors.Control;
             textBoxInspector.Dock = DockStyle.Fill;
             textBoxInspector.Font = new Font("Arial Narrow", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxInspector.Location = new Point(284, 299);
+            textBoxInspector.Location = new Point(284, 340);
             textBoxInspector.Margin = new Padding(3, 4, 3, 4);
             textBoxInspector.Name = "textBoxInspector";
             textBoxInspector.ReadOnly = true;
             textBoxInspector.Size = new Size(717, 42);
             textBoxInspector.TabIndex = 17;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label6.Location = new Point(63, 247);
-            label6.Margin = new Padding(3, 11, 3, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(192, 35);
-            label6.TabIndex = 8;
-            label6.Text = "No. Register";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label16.Location = new Point(63, 188);
-            label16.Margin = new Padding(3, 11, 3, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(190, 35);
-            label16.TabIndex = 19;
-            label16.Text = "Global Code";
-            // 
             // textBoxRegister
             // 
             textBoxRegister.Dock = DockStyle.Fill;
             textBoxRegister.Font = new Font("Arial", 18F);
-            textBoxRegister.Location = new Point(284, 240);
+            textBoxRegister.Location = new Point(284, 284);
             textBoxRegister.Margin = new Padding(3, 4, 3, 4);
             textBoxRegister.Name = "textBoxRegister";
             textBoxRegister.ReadOnly = true;
@@ -661,7 +696,7 @@
             // 
             textBoxGlobalCode.Dock = DockStyle.Fill;
             textBoxGlobalCode.Font = new Font("Arial", 18F);
-            textBoxGlobalCode.Location = new Point(284, 181);
+            textBoxGlobalCode.Location = new Point(284, 228);
             textBoxGlobalCode.Margin = new Padding(3, 4, 3, 4);
             textBoxGlobalCode.Name = "textBoxGlobalCode";
             textBoxGlobalCode.ReadOnly = true;
@@ -669,30 +704,39 @@
             textBoxGlobalCode.TabIndex = 20;
             textBoxGlobalCode.TextChanged += textBoxGlobalCode_TextChanged;
             // 
-            // pictureBox4
+            // textBoxModelNumber
             // 
-            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(3, 240);
-            pictureBox4.Margin = new Padding(3, 4, 3, 4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(54, 45);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 14;
-            pictureBox4.TabStop = false;
+            textBoxModelNumber.Dock = DockStyle.Fill;
+            textBoxModelNumber.Font = new Font("Arial", 18F);
+            textBoxModelNumber.Location = new Point(284, 172);
+            textBoxModelNumber.Margin = new Padding(3, 4, 3, 4);
+            textBoxModelNumber.Name = "textBoxModelNumber";
+            textBoxModelNumber.ReadOnly = true;
+            textBoxModelNumber.Size = new Size(717, 42);
+            textBoxModelNumber.TabIndex = 1;
             // 
-            // pictureBox9
+            // textBoxCode
             // 
-            pictureBox9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(3, 181);
-            pictureBox9.Margin = new Padding(3, 4, 3, 4);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(54, 42);
-            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 21;
-            pictureBox9.TabStop = false;
-            pictureBox9.Click += pictureBox9_Click;
+            textBoxCode.Dock = DockStyle.Fill;
+            textBoxCode.Font = new Font("Arial", 18F);
+            textBoxCode.Location = new Point(284, 116);
+            textBoxCode.Margin = new Padding(3, 4, 3, 4);
+            textBoxCode.Name = "textBoxCode";
+            textBoxCode.ReadOnly = true;
+            textBoxCode.Size = new Size(717, 42);
+            textBoxCode.TabIndex = 2;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = SystemColors.Control;
+            label17.Font = new Font("Arial", 18F, FontStyle.Bold);
+            label17.Location = new Point(63, 59);
+            label17.Margin = new Padding(3);
+            label17.Name = "label17";
+            label17.Size = new Size(165, 50);
+            label17.TabIndex = 22;
+            label17.Text = "Last Input Data";
             // 
             // tableLayoutPanel6
             // 
@@ -713,7 +757,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 24F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 24F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 24F));
-            tableLayoutPanel6.Size = new Size(461, 414);
+            tableLayoutPanel6.Size = new Size(461, 453);
             tableLayoutPanel6.TabIndex = 8;
             tableLayoutPanel6.Paint += tableLayoutPanel6_Paint;
             // 
@@ -730,10 +774,10 @@
             btnManual.FlatStyle = FlatStyle.Flat;
             btnManual.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManual.ForeColor = Color.White;
-            btnManual.Location = new Point(20, 118);
+            btnManual.Location = new Point(20, 129);
             btnManual.Margin = new Padding(0, 3, 0, 3);
             btnManual.Name = "btnManual";
-            btnManual.Size = new Size(421, 93);
+            btnManual.Size = new Size(421, 102);
             btnManual.TabIndex = 7;
             btnManual.Text = "Input Manual";
             btnManual.TextColor = Color.White;
@@ -754,11 +798,11 @@
             btnPrint.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPrint.ForeColor = Color.White;
             btnPrint.Image = (Image)resources.GetObject("btnPrint.Image");
-            btnPrint.Location = new Point(20, 316);
+            btnPrint.Location = new Point(20, 345);
             btnPrint.Margin = new Padding(0, 3, 0, 3);
             btnPrint.Name = "btnPrint";
             btnPrint.Padding = new Padding(149, 0, 0, 0);
-            btnPrint.Size = new Size(421, 95);
+            btnPrint.Size = new Size(421, 105);
             btnPrint.TabIndex = 6;
             btnPrint.Text = "Print";
             btnPrint.TextColor = Color.White;
@@ -779,7 +823,7 @@
             tableLayoutPanel11.RowCount = 2;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(415, 107);
+            tableLayoutPanel11.Size = new Size(415, 118);
             tableLayoutPanel11.TabIndex = 9;
             // 
             // DateHeader
@@ -790,7 +834,7 @@
             DateHeader.Location = new Point(0, 0);
             DateHeader.Margin = new Padding(0, 0, 3, 0);
             DateHeader.Name = "DateHeader";
-            DateHeader.Size = new Size(412, 53);
+            DateHeader.Size = new Size(412, 59);
             DateHeader.TabIndex = 5;
             DateHeader.Text = "Date";
             DateHeader.TextAlign = ContentAlignment.MiddleCenter;
@@ -801,10 +845,10 @@
             timeHeader.Dock = DockStyle.Fill;
             timeHeader.Font = new Font("Arial", 20F, FontStyle.Bold);
             timeHeader.ForeColor = Color.Black;
-            timeHeader.Location = new Point(3, 53);
+            timeHeader.Location = new Point(3, 59);
             timeHeader.Margin = new Padding(3, 0, 0, 0);
             timeHeader.Name = "timeHeader";
-            timeHeader.Size = new Size(412, 54);
+            timeHeader.Size = new Size(412, 59);
             timeHeader.TabIndex = 6;
             timeHeader.Text = "time";
             timeHeader.TextAlign = ContentAlignment.MiddleCenter;
@@ -824,11 +868,11 @@
             btnClear.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = Color.White;
             btnClear.Image = (Image)resources.GetObject("btnClear.Image");
-            btnClear.Location = new Point(20, 217);
+            btnClear.Location = new Point(20, 237);
             btnClear.Margin = new Padding(0, 3, 0, 3);
             btnClear.Name = "btnClear";
             btnClear.Padding = new Padding(149, 0, 0, 0);
-            btnClear.Size = new Size(421, 93);
+            btnClear.Size = new Size(421, 102);
             btnClear.TabIndex = 8;
             btnClear.Text = "Clear";
             btnClear.TextColor = Color.White;
@@ -1112,13 +1156,14 @@
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel11.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
@@ -1205,5 +1250,8 @@
         private Label label16;
         private TextBox textBoxGlobalCode;
         private PictureBox pictureBox9;
+        private TextBox textBoxLastInput;
+        private PictureBox pictureBox10;
+        private Label label17;
     }
 }

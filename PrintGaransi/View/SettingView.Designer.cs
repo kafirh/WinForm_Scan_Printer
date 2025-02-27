@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingView));
             textBoxIP = new TextBox();
             textBoxPort = new TextBox();
             label1 = new Label();
@@ -168,13 +169,15 @@
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(151, 62);
+            btnConnect.Image = (Image)resources.GetObject("btnConnect.Image");
+            btnConnect.Location = new Point(123, 62);
             btnConnect.Margin = new Padding(3, 4, 3, 4);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(171, 53);
+            btnConnect.Size = new Size(200, 75);
             btnConnect.TabIndex = 8;
             btnConnect.Text = "Connect";
             btnConnect.TextColor = Color.White;
+            btnConnect.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnConnect.UseVisualStyleBackColor = false;
             // 
             // label5
@@ -252,13 +255,16 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
+            btnClose.Image = (Image)resources.GetObject("btnClose.Image");
+            btnClose.ImageAlign = ContentAlignment.MiddleRight;
             btnClose.Location = new Point(427, 62);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(171, 53);
+            btnClose.Size = new Size(200, 75);
             btnClose.TabIndex = 8;
             btnClose.Text = "Close";
             btnClose.TextColor = Color.White;
+            btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 

@@ -47,6 +47,11 @@ namespace PrintPackingLabel.View
             get { return textBoxSerial.Text; }
             set { textBoxSerial.Text = value; }
         }
+        public string LastInput
+        {
+            get { return textBoxLastInput.Text; }
+            set { textBoxLastInput.Text = value; }
+        }
         public string ModelNumber
         {
             get { return textBoxModelNumber.Text; }
@@ -166,6 +171,7 @@ namespace PrintPackingLabel.View
                     textBoxStatus.BackColor = SystemColors.Control;
 
                     SerialNumber = "";
+                    LastInput = "";
                     ModelCode = "";
                     ModelNumber = "";
                     GlobalCodeId = "";
@@ -188,6 +194,7 @@ namespace PrintPackingLabel.View
 
 
                     SerialNumber = "";
+                    LastInput = "";
                     ModelCode = "";
                     ModelNumber = "";
                     GlobalCodeId = "";
@@ -202,6 +209,7 @@ namespace PrintPackingLabel.View
             btnClear.Click += delegate
             {
                 SerialNumber = "";
+                LastInput = "";
                 ModelCode = "";
                 ModelNumber = "";
                 GlobalCodeId = "";
@@ -488,6 +496,11 @@ namespace PrintPackingLabel.View
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

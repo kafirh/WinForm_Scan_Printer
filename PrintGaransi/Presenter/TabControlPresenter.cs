@@ -252,7 +252,8 @@ namespace PrintPackingLabel.Presenter
            {
                ModelCode = _view.ModelCode.ToString()
            };
-
+            
+           _view.LastInput = _view.SerialNumber;
            var searchModel = _modelNumberRepository.GetByModelCode(model);
 
            if (searchModel != null)
@@ -278,6 +279,7 @@ namespace PrintPackingLabel.Presenter
             _view.Register = "";
             _view.Status = "";
             _view.GlobalCodeId = "";
+            _view.LastInput = "";
             _view.StatusBackColor = SystemColors.Control;
         } 
         

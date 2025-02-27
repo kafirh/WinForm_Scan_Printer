@@ -9,6 +9,7 @@ namespace PrintPackingLabel.View
     {
         // Properties
         string SerialNumber { get; set; }
+        string LastInput { get; set; }
         string ModelCode { get; set; }
         string ModelNumber { get; set; }
         string GlobalCodeId { get; set; }

@@ -110,12 +110,15 @@
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
+            button1.Image = Properties.Resources.icons8_yes_50;
             button1.Location = new Point(99, 15);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(180, 58);
             button1.TabIndex = 0;
             button1.Text = "Ok";
+            button1.TextAlign = ContentAlignment.MiddleRight;
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
             button1.UseVisualStyleBackColor = false;
             // 
             // button2
@@ -125,12 +128,14 @@
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
+            button2.Image = Properties.Resources.icons8_no_50;
             button2.Location = new Point(479, 15);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(180, 58);
             button2.TabIndex = 0;
             button2.Text = "Cancel";
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
