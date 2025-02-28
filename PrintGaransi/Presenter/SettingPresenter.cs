@@ -18,6 +18,7 @@ namespace PrintPackingLabel.Presenter
         private readonly ProductTypeModel _productType;
         private readonly PrintModeModel _printMode;
         private readonly PrinterTypeModel _printerType;
+        private readonly PrinterCodeModel _printerCode;
 
         public SettingPresenter(ISettingView view, SettingModel model) 
         {
@@ -27,6 +28,7 @@ namespace PrintPackingLabel.Presenter
             _smodel = new LocationModel();
             _printMode = new PrintModeModel();
             _printerType = new PrinterTypeModel();
+            _printerCode = new PrinterCodeModel();
 
             _view.SelectedIndexChanged += View_SelectedIndexChanged;
             _view.SaveIPSettings += SaveIPSettings;
@@ -37,6 +39,7 @@ namespace PrintPackingLabel.Presenter
             _view.LoadProductName += LoadProductTypeName;
             _view.SelectedProductType += SelectedProductType;
             _view.HandleRadioButton += HandleRadioButton;
+            _view.HandleRadioButton2 += HandleRadioButton2;
             _view.SelectedPrinterType += SelectedPrinterType;
             _view.LoadPrinterType += LoadPrinter;
             _view.HandleCheckBox += HandleCheckBox;
@@ -64,6 +67,23 @@ namespace PrintPackingLabel.Presenter
         {
             string loadedPrinter = _printerType.GetPrinterType();
             _view.DsiplayPrinterType(loadedPrinter);
+        }
+
+        private void HandleRadioButton2(object? sender, EventArgs e)
+        {
+            if (_view.printerCode == "Barcode")
+                Barcode_Checked();
+            else if (_view.printerCode == "QRcode")
+                QRcode_Checked();
+        }
+
+        private void Barcode_Checked()
+        {
+            _printerCode.SaveData(_view.printerCode);
+        }
+        private void QRcode_Checked()
+        {
+            _printerCode.SaveData(_view.printerCode);
         }
 
         private void HandleRadioButton(object? sender, EventArgs e)

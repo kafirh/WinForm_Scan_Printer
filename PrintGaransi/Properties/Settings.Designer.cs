@@ -130,5 +130,17 @@ namespace PrintPackingLabel.Properties {
                 this["PrinterType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Barcode")]
+        public string PrinterCode {
+            get {
+                return ((string)(this["PrinterCode"]));
+            }
+            set {
+                this["PrinterCode"] = value;
+            }
+        }
     }
 }

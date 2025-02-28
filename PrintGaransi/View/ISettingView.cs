@@ -13,6 +13,7 @@ namespace PrintPackingLabel.View
         string ipaddress { get; set; }
         string portaddress { get; set; }
         string mode { get; set; }
+        string printerCode { get; set; }
         bool IsCheckBoxChecked { get; set; }
 
         event EventHandler SelectedIndexChanged;
@@ -24,6 +25,7 @@ namespace PrintPackingLabel.View
         event EventHandler LoadProductName;
         event EventHandler SelectedProductType;
         event EventHandler HandleRadioButton;
+        event EventHandler HandleRadioButton2;
         event EventHandler SelectedPrinterType;
         event EventHandler LoadPrinterType;
         event EventHandler HandleCheckBox;

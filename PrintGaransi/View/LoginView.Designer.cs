@@ -230,13 +230,16 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(505, 499);
+            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
+            btnExit.ImageAlign = ContentAlignment.MiddleRight;
+            btnExit.Location = new Point(506, 487);
             btnExit.Margin = new Padding(3, 4, 3, 4);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(129, 53);
+            btnExit.Size = new Size(170, 65);
             btnExit.TabIndex = 10;
-            btnExit.Text = "Exit";
+            btnExit.Text = "EXIT";
             btnExit.TextColor = Color.White;
+            btnExit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnExit.UseVisualStyleBackColor = false;
             // 
             // btnConnect
@@ -250,15 +253,18 @@
             btnConnect.Cursor = Cursors.Hand;
             btnConnect.FlatAppearance.BorderSize = 0;
             btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConnect.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(270, 499);
+            btnConnect.Image = (Image)resources.GetObject("btnConnect.Image");
+            btnConnect.ImageAlign = ContentAlignment.MiddleRight;
+            btnConnect.Location = new Point(232, 487);
             btnConnect.Margin = new Padding(3, 4, 3, 4);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(129, 53);
+            btnConnect.Size = new Size(170, 65);
             btnConnect.TabIndex = 9;
-            btnConnect.Text = "Login";
+            btnConnect.Text = "LOGIN";
             btnConnect.TextColor = Color.White;
+            btnConnect.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnConnect.UseVisualStyleBackColor = false;
             // 
             // pictureBox3

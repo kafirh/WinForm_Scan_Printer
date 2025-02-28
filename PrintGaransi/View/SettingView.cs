@@ -30,6 +30,7 @@ namespace PrintPackingLabel.View
             _printMode = new PrintModeModel();
             LoadCheckBoxSetting();
             LoadRadioSettings();
+            LoadRadioSettings2();
             LoadPrinters();
         }
 
@@ -70,6 +71,11 @@ namespace PrintPackingLabel.View
             btnOff.Checked = Properties.Settings.Default.Mode == "off";
             btnPreview.Checked = Properties.Settings.Default.Mode == "preview";
         }
+        private void LoadRadioSettings2()
+        {
+            btnQRcode.Checked = Properties.Settings.Default.PrinterCode == "QRcode";
+            btnBarcode.Checked = Properties.Settings.Default.PrinterCode == "Barcode";
+        }
 
         public List<string> JenisProdukNames
         {
@@ -93,6 +99,7 @@ namespace PrintPackingLabel.View
             get { return textBoxPort.Text; }
             set { textBoxPort.Text = value; }
         }
+        public string printerCode { get;set; }
 
         public string mode { get; set; }
 
@@ -111,6 +118,7 @@ namespace PrintPackingLabel.View
         public event EventHandler LoadProductName;
         public event EventHandler SelectedProductType;
         public event EventHandler HandleRadioButton;
+        public event EventHandler HandleRadioButton2;
         public event EventHandler SelectedPrinterType;
         public event EventHandler LoadPrinterType;
         public event EventHandler HandleCheckBox;
@@ -213,6 +221,22 @@ namespace PrintPackingLabel.View
                     HandleRadioButton?.Invoke(sender, e);
                 }
             };
+            btnBarcode.CheckedChanged += (sender, e) =>
+            {
+                if (btnBarcode.Checked)
+                {
+                    printerCode = "Barcode";
+                    HandleRadioButton2?.Invoke(sender, e);
+                }
+            };
+            btnQRcode.CheckedChanged += (sender, e) =>
+            {
+                if (btnQRcode.Checked)
+                {
+                    printerCode = "QRcode";
+                    HandleRadioButton2?.Invoke(sender, e);
+                }
+            };
 
             btnClose.Click += delegate
             {
@@ -309,6 +333,16 @@ namespace PrintPackingLabel.View
         }
 
         private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPort_TextChanged(object sender, EventArgs e)
         {
 
         }

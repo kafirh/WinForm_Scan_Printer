@@ -143,6 +143,8 @@ namespace PrintPackingLabel.View
                 int totalRows = dataGridView1.Rows.Count;
                 row.Cells["No1"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No1"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                row.Cells["No1"].Style.BackColor = Color.FromArgb(21, 136, 50);
+                row.Cells["No1"].Style.ForeColor = Color.White;
             };
 
             dataGridView2.RowPostPaint += (sender, e) =>
@@ -151,7 +153,8 @@ namespace PrintPackingLabel.View
                 int totalRows = dataGridView2.Rows.Count;
                 row.Cells["No2"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No2"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                row.Cells["No2"].Style.BackColor = Color.Green;
+                row.Cells["No2"].Style.BackColor = Color.FromArgb(21, 136, 50);
+                row.Cells["No2"].Style.ForeColor = Color.White;
             };
 
             btnManual.Click += delegate
@@ -271,7 +274,14 @@ namespace PrintPackingLabel.View
             }
 
             // Menambahkan event handler untuk PrintPage
-            pd.PrintPage += (s, e) => _printLayout.Print(e, model);
+            if (Properties.Settings.Default.PrinterCode == "Barcode")
+            {
+                pd.PrintPage += (s, e) => _printLayout.PrintBarcode(e, model);
+            }
+            else
+            {
+                pd.PrintPage += (s, e) => _printLayout.PrintQRcode(e, model);
+            }
 
             if (mode == "preview")
             {

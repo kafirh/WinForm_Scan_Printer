@@ -253,14 +253,14 @@ namespace PrintPackingLabel.Presenter
                ModelCode = _view.ModelCode.ToString()
            };
             
-           _view.LastInput = _view.SerialNumber;
+           _view.LastInput = _view.ModelCode+_view.SerialNumber;
            var searchModel = _modelNumberRepository.GetByModelCode(model);
 
            if (searchModel != null)
            {
                 _view.ModelNumber = searchModel.ModelNumber;
-                _view.GlobalCodeId = searchModel.GlobalCodeId;
-                _view.Register = searchModel.NoReg;
+                _view.GlobalCodeId = string.IsNullOrEmpty(searchModel.GlobalCodeId) || searchModel.GlobalCodeId == "-" ? "N/A" : searchModel.GlobalCodeId; ;
+                _view.Register = string.IsNullOrEmpty(searchModel.noReg) || searchModel.noReg == "-" ? "N/A" : searchModel.noReg; ;
             }
            else
            {

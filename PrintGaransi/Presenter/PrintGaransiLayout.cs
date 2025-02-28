@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using ZXing;
+using ZXing.Common;
 using ZXing.Windows.Compatibility;
 
 namespace PrintPackingLabel.Presenter
@@ -24,7 +25,7 @@ namespace PrintPackingLabel.Presenter
             {'-', "bWbwbwBwB"}, {'.', "BWbwbwBwb"}, {' ', "bWBwbwBwb"}, {'*', "bWbwBwBwb"},
             {'$', "bWbWbWbwb"}, {'/', "bWbWbwbWb"}, {'+', "bWbwbWbWb"}, {'%', "bwbWbWbWb"}
         };
-        public void Print(PrintPageEventArgs e, GaransiModel garansi)
+        public void PrintBarcode(PrintPageEventArgs e, GaransiModel garansi)
         {
             PaperSize customPaperSize = new PaperSize("Custom", 276, 157);
             e.PageSettings.PaperSize = customPaperSize;
@@ -58,6 +59,63 @@ namespace PrintPackingLabel.Presenter
                 e.Graphics.DrawString("SERIAL NO.", fontBarcodeLabel, Brushes.Black, new PointF(xPos, yPos));
                 e.Graphics.DrawString(garansi.NoSeri, fontTitle, Brushes.Black, new PointF(xPos + sizeLabel.Width, yPos - 2));
             }
+        }
+
+        public void PrintQRcode(PrintPageEventArgs e, GaransiModel garansi)
+        {
+            // Ukuran kertas custom
+            PaperSize customPaperSize = new PaperSize("Custom", 276, 157);
+            e.PageSettings.PaperSize = customPaperSize;
+
+            int xPos = 12; // Posisi awal QR Code
+            int yPos = 32;
+
+            Font fontTitle = new Font("PudHinban M", 11, FontStyle.Bold);
+            Font fontBarcodeLabel = new Font("PudHinban M", 6, FontStyle.Regular);
+
+            // Generate QR Code untuk Model Number & Serial Number
+            using (Bitmap barcodeModel = GenerateQRCode(garansi.NoSeri + "," + garansi.ModelNumber))
+            {
+                // Gambar QR Code di posisi awal
+                e.Graphics.DrawImage(barcodeModel, new PointF(xPos-2, yPos-8));
+                MessageBox.Show(barcodeModel.Width.ToString());
+
+                // Geser xPos untuk menempatkan teks di samping QR Code
+                xPos += barcodeModel.Width - 114; // Tambahkan jarak agar tidak terlalu dekat
+
+                // Hitung ukuran teks agar bisa diatur posisinya dengan rapi
+                float labelHeight = e.Graphics.MeasureString("MODEL NO.", fontBarcodeLabel).Height;
+                float valueHeight = e.Graphics.MeasureString(garansi.ModelNumber, fontTitle).Height;
+                float serialLabelHeight = e.Graphics.MeasureString("SERIAL NO.", fontBarcodeLabel).Height;
+                float serialValueHeight = e.Graphics.MeasureString(garansi.NoSeri, fontTitle).Height;
+
+                // Tampilkan teks di samping QR Code
+                e.Graphics.DrawString("MODEL NO.", fontBarcodeLabel, Brushes.Black, new PointF(xPos, yPos+2));
+                e.Graphics.DrawString(garansi.ModelNumber, fontTitle, Brushes.Black, new PointF(xPos-1, yPos + labelHeight-1));
+
+                e.Graphics.DrawString("SERIAL NO.", fontBarcodeLabel, Brushes.Black, new PointF(xPos, yPos + labelHeight + valueHeight + 6));
+                e.Graphics.DrawString(garansi.NoSeri, fontTitle, Brushes.Black, new PointF(xPos-1, yPos + labelHeight + valueHeight + serialLabelHeight+4));
+                MessageBox.Show(garansi.NoSeri + "," + garansi.ModelNumber);
+            }
+        }
+
+
+        private Bitmap GenerateQRCode(string data)
+        {
+            var writer = new BarcodeWriter
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = new EncodingOptions
+                {
+                    Height = 200, // Ukuran QR Code (pixel)
+                    Width = 200,
+                    PureBarcode = true,
+                },
+                Renderer = new BitmapRenderer() // Renderer untuk output Bitmap
+            };
+            Bitmap barcode = writer.Write(data);
+            barcode.SetResolution(203, 203);
+            return barcode;
         }
 
         private Bitmap GenerateBarcodeManual(string data)

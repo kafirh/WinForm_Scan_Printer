@@ -774,6 +774,8 @@
             btnManual.FlatStyle = FlatStyle.Flat;
             btnManual.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManual.ForeColor = Color.White;
+            btnManual.Image = (Image)resources.GetObject("btnManual.Image");
+            btnManual.ImageAlign = ContentAlignment.MiddleRight;
             btnManual.Location = new Point(20, 129);
             btnManual.Margin = new Padding(0, 3, 0, 3);
             btnManual.Name = "btnManual";
@@ -781,6 +783,7 @@
             btnManual.TabIndex = 7;
             btnManual.Text = "Input Manual";
             btnManual.TextColor = Color.White;
+            btnManual.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnManual.UseVisualStyleBackColor = false;
             btnManual.Click += btnManual_Click;
             // 

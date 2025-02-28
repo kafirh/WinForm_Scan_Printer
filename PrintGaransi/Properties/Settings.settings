@@ -29,5 +29,8 @@
     <Setting Name="PrinterType" Type="System.String" Scope="User">
       <Value Profile="(Default)">Laser</Value>
     </Setting>
+    <Setting Name="PrinterCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Barcode</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
